@@ -19,3 +19,5 @@ rotate([0,270,0])
 polygon([[0,0],[lengtebovenlang,0],[lengteonderlang,hoogtelang],[0,hoogtelang]]);
 
 // plaat schuin
+rotate([0,150,0])
+    polygon([[lengtebovenlang,0],[lengtebovenlang,lengtebovenkort],[lengteonderlang,hoogtelang]]);
