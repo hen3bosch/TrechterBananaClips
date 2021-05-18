@@ -1,23 +1,27 @@
 // Trechter om versmering bij de clipjes voor het bananakrat tegen te gaan
 // defininities:
 lengtebovenlang = 900;
-lengtebovenkort = 600;
+lengtebovenkort = 500;
 lengteopstaanderand = 300;
-lengteonderlang = 400;
+lengteonderlang = 300;
 lengteonderkort = 200;
-hoogtelang = 500;
-hoogtekortrecht = 700;
+hoogtelang = 550;
+hoogtekortrecht = 800;
 hoogtekortschuin = 900;
 
 // bouw de platen:
 
 // plaat opstaande rand
 rotate([0,270,0])
-    square([lengteopstaanderand,hoogtelang]);
+    linear_extrude(3)
+        square([lengteopstaanderand,hoogtelang]);
 
 // plaat liggend
-polygon([[0,0],[lengtebovenlang,0],[lengteonderlang,hoogtelang],[0,hoogtelang]]);
+linear_extrude(3)
+    polygon([[0,0],[lengtebovenlang,0],[lengteonderlang,hoogtelang],[0,hoogtelang]]);
 
 // plaat schuin
-rotate([0,150,0])
-    polygon([[lengtebovenlang,0],[lengtebovenlang,lengtebovenkort],[lengteonderlang,hoogtelang]]);
+translate([lengtebovenlang,0,0])
+    rotate([40,-45,15])
+        linear_extrude(3)
+            polygon([[0,0],[0,lengtebovenkort],[lengtebovenkort,hoogtekortrecht],[hoogtekortschuin,lengtebovenkort-lengteonderkort]]);
